@@ -7,7 +7,7 @@ body {
     padding: 12px 30px 4px;
     margin: 0;
 }
-h1 {
+#head {
     background: rgb(119, 94, 87);
     padding: 4px 14px;
     color: white;
@@ -19,8 +19,9 @@ h1 {
     font-size: 8pt;
     margin: 10px 0;
 }
-#icon {
-    vertical-align: bottom;
+#smflogo {
+    float: right;
+    margin: 2px;
 }
 a {
     color: rgb(71, 108, 142);
