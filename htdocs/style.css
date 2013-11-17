@@ -23,6 +23,10 @@ body {
     float: right;
     margin: 2px;
 }
+th a {
+    color: inherit;
+    text-decoration: none;
+}
 a {
     color: rgb(71, 108, 142);
     text-decoration: none;
