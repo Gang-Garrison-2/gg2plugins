@@ -38,7 +38,7 @@ function draw_table ($rows, $sort_by = NULL) {
     // Draw header using keys of first row
     reset($rows);
     $columns = array_keys($rows[key($rows)]);
-    $headerrow = [];
+    $headerrow = array();
     foreach ($columns as $name) {
         // Sort by link
         if ($sort_by === $name) {
@@ -60,14 +60,14 @@ function draw_table ($rows, $sort_by = NULL) {
 // Prepare data to display
 
 $plugindata = json_decode(file_get_contents("../data.json"), true)['plugins'];
-$plugintable = [];
+$plugintable = array();
 foreach ($plugindata as $name => $plugin) {
-    $row = [
+    $row = array(
         'name' => $name,
         'author' => $plugin['author'],
         'topic' => "<a href=\"/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
         'md5' => ''
-    ];
+    );
     foreach ($plugin['md5s'] as $index => $md5) {
         $row['md5'] .= "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
         // If we have > 1 MD5s, we'll mark latest and old versions
