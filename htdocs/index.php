@@ -59,7 +59,8 @@ function draw_table ($rows, $sort_by = NULL) {
 
 // Prepare data to display
 
-$plugindata = json_decode(file_get_contents("../data.json"), true)['plugins'];
+$plugindata = json_decode(file_get_contents("../data.json"), true);
+$plugindata = $plugindata['plugins'];
 $plugintable = array();
 foreach ($plugindata as $name => $plugin) {
     $row = array(
