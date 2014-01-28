@@ -173,6 +173,13 @@
                 "7fccd797d87157d508b1a947c6df77b2",
                 "3c19b42b7d1d1922e9af26af9fd63d4d"
             ]
+        },
+        "upgradeable_sentries": {
+            "author": "BassMakesPaste",
+            "topic": "34989.0",
+            "md5s": [
+                "60946466795c13220da6417c43da9fc8"
+            ]
         }
     }
 }
