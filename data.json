@@ -218,6 +218,13 @@
                 "bb044edd880651a445cdee5631cdb114",
                 "17850c5b8f00a9952277b66c7bfa27fb"
             ]
+        },
+        "anti_cheat": {
+            "author": "ajf",
+            "topic": null,
+            "md5s": [
+                "c5d5cee84e5c24f111455c41651355dc"
+            ]
         }
     }
 }

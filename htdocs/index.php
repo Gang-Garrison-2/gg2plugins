@@ -17,7 +17,7 @@ HTML;
 function draw_row ($row, $type='td') {
     echo "<tr>";
     foreach ($row as $cell) {
-        echo "<$type>" . $cell . "</$type>";
+        echo "<$type>" . (is_null($cell) ? 'null' : $cell) . "</$type>";
     }
     echo "</tr>";
 }
