@@ -17,7 +17,7 @@ HTML;
 function draw_row ($row, $type='td') {
     echo "<tr>";
     foreach ($row as $cell) {
-        echo "<$type>" . (is_null($cell) ? 'null' : $cell) . "</$type>";
+        echo "<$type>" . $cell . "</$type>";
     }
     echo "</tr>";
 }
@@ -66,7 +66,7 @@ foreach ($plugindata as $name => $plugin) {
     $row = array(
         'name' => $name,
         'author' => $plugin['author'],
-        'topic' => "<a href=\"/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
+        'topic' => is_null($plugin['topic']) ? "none" : "<a href=\"/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
         'md5' => ''
     );
     foreach ($plugin['md5s'] as $index => $md5) {
