@@ -216,6 +216,7 @@
             "author": "Wareya",
             "topic": "35645.0",
             "md5s": [
+                "f6cf2a5f47a5e7504b62977b6dc78969",
                 "208b74fbb8e3156cc79a557084654a7f",
                 "446cadc6f2de41944ebe9eb6e3b11023",
                 "bb044edd880651a445cdee5631cdb114",
@@ -297,6 +298,13 @@
             "topic": "36248.0",
             "md5s": [
                 "69878c30576eeccef0c243d57332552d"
+            ]
+        },
+        "mapspin": {
+            "author": "Lorgan",
+            "topic": "35835.0",
+            "md5s": [
+                "f386352d61f6e4101d6fdfc6794a400f"
             ]
         }
     }
