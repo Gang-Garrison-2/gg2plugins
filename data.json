@@ -302,9 +302,16 @@
         },
         "mapspin": {
             "author": "Lorgan",
-            "topic": "35835.0",
+            "topic": "36320.0",
             "md5s": [
                 "f386352d61f6e4101d6fdfc6794a400f"
+            ]
+        },
+        "warpacks": {
+            "author": "Wareya",
+            "topic": "36344.0",
+            "md5s": [
+                "dbb7d2b55f09627dc9304bc0be2f8e24"
             ]
         }
     }
