@@ -34,6 +34,11 @@ a {
 a:hover {
     text-decoration: underline;
 }
+ul, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 .md5 {
     font-family: monospace;
 }

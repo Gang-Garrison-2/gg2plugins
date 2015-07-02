@@ -69,15 +69,20 @@ foreach ($plugindata as $name => $plugin) {
         'topic' => is_null($plugin['topic']) ? "none" : "<a href=\"/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
         'md5' => ''
     );
-    foreach ($plugin['md5s'] as $index => $md5) {
-        $row['md5'] .= "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
-        // If we have > 1 MD5s, we'll mark latest and old versions
-        if (count($plugin['md5s']) > 1) {
+    // Single MD5 is just a link
+    if (!(count($plugin['md5s']) > 1)) {
+        $md5 = $plugin['md5s'][0];
+        $row['md5'] = "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
+    } else {
+    // If we have multiple MD5s, we'll make list with latest and old versions
+        $row['md5'] = "<ul>";
+        foreach ($plugin['md5s'] as $index => $md5) {
+            $row['md5'] .= "<li>";
+            $row['md5'] .= "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
             $row['md5'] .= ($index === 0) ? " (latest)" : " (old)";
-            // Newlines needed to separate
-            if ($index !== count($plugin['md5s']) - 1)
-                $row['md5'] .= "<br>";
+            $row['md5'] .= "</li>";
         }
+        $row['md5'] .= "</ul>";
     }
     $plugintable[] = $row;
 }
