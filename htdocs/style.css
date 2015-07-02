@@ -39,6 +39,9 @@ ul, li {
     padding: 0;
     margin: 0;
 }
+input[type=checkbox] {
+    margin: 0;
+}
 .md5 {
     font-family: monospace;
 }

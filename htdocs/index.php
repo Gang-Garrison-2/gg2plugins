@@ -24,20 +24,20 @@ $pagehead = <<<HTML
             oldMD5s[i].style.display = 'none';
         }
 
-        var para, button;
+        var para, label, checkbox;
         para = document.createElement('p');
-        para.textContent = 'MD5 hashes for old plugin versions are hidden.';
-        button = document.createElement('button');
-        button.textContent = 'Show MD5 hashes for old plugin versions';
-        button.onclick = function () {
+        label = document.createElement('label');
+        checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = true;
+        checkbox.onclick = checkbox.onchange = function () {
             for (var i = 0; i < oldMD5s.length; i++) {
-                oldMD5s[i].style.display = '';
+                oldMD5s[i].style.display = (checkbox.checked) ? 'none' : '';
             }
-
-            document.getElementById('desc').removeChild(para);
         };
-        para.appendChild(document.createElement('br'));
-        para.appendChild(button);
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(' Hide MD5 hashes for old plugin versions'));
+        para.appendChild(label);
 
         document.getElementById('desc').appendChild(para);
     };
