@@ -12,6 +12,37 @@ $pagehead = <<<HTML
 <div id=desc>
     <p>This directory provides the source of "server-sent plugins" used in GG2, see the <a href="http://www.ganggarrison.com/forums/index.php?topic=33509">Server-sent plugins FAQ</a>.</p>
 </div>
+
+<script>
+(function () {
+    'use strict';
+
+    window.onload = function () {
+        var oldMD5s = document.getElementsByClassName('old-md5');
+
+        for (var i = 0; i < oldMD5s.length; i++) {
+            oldMD5s[i].style.display = 'none';
+        }
+
+        var para, button;
+        para = document.createElement('p');
+        para.textContent = 'MD5 hashes for old plugin versions are hidden.';
+        button = document.createElement('button');
+        button.textContent = 'Show MD5 hashes for old plugin versions';
+        button.onclick = function () {
+            for (var i = 0; i < oldMD5s.length; i++) {
+                oldMD5s[i].style.display = '';
+            }
+
+            document.getElementById('desc').removeChild(para);
+        };
+        para.appendChild(document.createElement('br'));
+        para.appendChild(button);
+
+        document.getElementById('desc').appendChild(para);
+    };
+}());
+</script>
 HTML;
 
 function draw_row ($row, $type='td') {
@@ -77,7 +108,7 @@ foreach ($plugindata as $name => $plugin) {
     // If we have multiple MD5s, we'll make list with latest and old versions
         $row['md5'] = "<ul>";
         foreach ($plugin['md5s'] as $index => $md5) {
-            $row['md5'] .= "<li>";
+            $row['md5'] .= ($index === 0) ? "<li>" : "<li class=old-md5>";
             $row['md5'] .= "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
             $row['md5'] .= ($index === 0) ? " (latest)" : " (old)";
             $row['md5'] .= "</li>";
