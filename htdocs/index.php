@@ -110,7 +110,7 @@ foreach ($plugindata as $name => $plugin) {
         foreach ($plugin['md5s'] as $index => $md5) {
             $row['md5'] .= ($index === 0) ? "<li>" : "<li class=old-md5>";
             $row['md5'] .= "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
-            $row['md5'] .= ($index === 0) ? " (latest)" : " (old)";
+            $row['md5'] .= ($index === 0) ? "" : " (old)";
             $row['md5'] .= "</li>";
         }
         $row['md5'] .= "</ul>";
