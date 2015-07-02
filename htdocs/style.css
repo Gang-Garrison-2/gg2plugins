@@ -41,6 +41,7 @@ ul, li {
 }
 input[type=checkbox] {
     margin: 0;
+    vertical-align: bottom;
 }
 .md5 {
     font-family: monospace;
