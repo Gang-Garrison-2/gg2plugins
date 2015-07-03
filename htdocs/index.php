@@ -94,14 +94,18 @@ $plugindata = json_decode(file_get_contents("../data.json"), true);
 $plugindata = $plugindata['plugins'];
 $plugintable = array();
 foreach ($plugindata as $name => $plugin) {
+    $removed = isset($plugin['removed']) && $plugin['removed'];
     $row = array(
-        'name' => $name,
+        'name' => $removed ? "<strike>$name</strike>" : $name,
         'author' => $plugin['author'],
         'topic' => is_null($plugin['topic']) ? "none" : "<a href=\"/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
         'md5' => ''
     );
+    // Removed plugins have no MD5s
+    if ($removed) {
+        $row['md5'] = "(removed)";
     // Single MD5 is just a link
-    if (!(count($plugin['md5s']) > 1)) {
+    } else if (!(count($plugin['md5s']) > 1)) {
         $md5 = $plugin['md5s'][0];
         $row['md5'] = "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
     } else {

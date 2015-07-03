@@ -50,3 +50,13 @@ For example, a hypothetical chat plugin might have an entry that looks like this
     ]
 }
 ```
+
+Plugins which have been removed for whatever reason lack the `"md5s"` array and instead have a `"removed"` key with the value `true`, e.g.:
+
+```JSON
+"example_chat": {
+    "author": "Jane Blogges",
+    "topic": "123456.0",
+    "removed": true
+}
+```
