@@ -96,7 +96,7 @@ $plugintable = array();
 foreach ($plugindata as $name => $plugin) {
     $removed = isset($plugin['removed']) && $plugin['removed'];
     $row = array(
-        'name' => $removed ? "<strike>$name</strike>" : $name,
+        'name' => $removed ? "<del>$name</del>" : $name,
         'author' => $plugin['author'],
         'topic' => is_null($plugin['topic']) ? "none" : "<a href=\"/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
         'md5' => ''
