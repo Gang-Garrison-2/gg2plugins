@@ -22,7 +22,7 @@ To make adding and updating the plugins in this repository more convenient, a PH
 
 Plugins have an entries in the JSON file `data.json`, which has the following format:
 
-```JSON
+```
 {
     "plugins" {
         <plugin name>: {
