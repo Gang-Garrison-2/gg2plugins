@@ -75,7 +75,7 @@ function draw_table ($rows, $sort_by = NULL) {
         if ($sort_by === $name) {
             $headerrow[] = "▼<a href=?>$name</a>";
         } else {
-            $headerrow[] = "<a href=?sort_by=$name>$name</a>";
+            $headerrow[] = "<a href=\"?sort_by=$name\">$name</a>";
         }
     }
     draw_row($headerrow, 'th');
