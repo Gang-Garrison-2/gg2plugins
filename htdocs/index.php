@@ -98,7 +98,7 @@ foreach ($plugindata as $name => $plugin) {
     $row = array(
         'name' => $removed ? "<del>$name</del>" : $name,
         'author' => $plugin['author'],
-        'topic' => is_null($plugin['topic']) ? "none" : "<a href=\"/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
+        'topic' => is_null($plugin['topic']) ? "none" : "<a href=\"http://www.ganggarrison.com/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
         'md5' => ''
     );
     // Removed plugins have no MD5s
