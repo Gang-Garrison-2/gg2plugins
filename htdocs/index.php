@@ -61,7 +61,7 @@ function draw_table ($rows, $sort_by = NULL) {
     // Sort rows
     if ($sort_by !== NULL)
         usort($rows, function ($a, $b) use ($sort_by) {
-            return ((strpos($a[$sort_by], "<del>") !== FALSE) - (strpos($b[$sort_by], "<del>") !== FALSE)) ?: strcasecmp($a[$sort_by], $b[$sort_by]);
+            return (($a["md5"] === "(removed)") - ($b["md5"] === "(removed)")) ?: strcasecmp($a[$sort_by], $b[$sort_by]);
         });
 
     echo "<table>";
