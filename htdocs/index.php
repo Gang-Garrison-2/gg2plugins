@@ -92,7 +92,7 @@ if ($sort_by === "name") {
     uksort($plugindata, "strcasecmp");
 } else if ($sort_by !== NULL && $sort_by !== "md5s") {
     uasort($plugindata, function ($a, $b) use ($sort_by) {
-        return (!empty($a["removed"]) - !empty($b["removed"])) ?: strcasecmp($a[$sort_by], $b[$sort_by]);
+        return strcasecmp($a[$sort_by], $b[$sort_by]);
     });
 }
 $plugintable = array();
