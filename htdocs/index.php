@@ -58,12 +58,6 @@ function draw_table ($rows, $sort_by = NULL) {
     if (empty($rows))
         return;
 
-    // Sort rows
-    if ($sort_by !== NULL)
-        usort($rows, function ($a, $b) use ($sort_by) {
-            return (($a["md5"] === "(removed)") - ($b["md5"] === "(removed)")) ?: strcasecmp($a[$sort_by], $b[$sort_by]);
-        });
-
     echo "<table>";
     echo "<thead>";
     // Draw header using keys of first row
@@ -93,6 +87,14 @@ function draw_table ($rows, $sort_by = NULL) {
 $data = json_decode(file_get_contents("../data.json"), true);
 $plugindata = $data['plugins'];
 $authordata = $data['authors'];
+$sort_by = isset($_GET['sort_by']) ? $_GET['sort_by'] : 'name';
+if ($sort_by === "name") {
+    uksort($plugindata, "strcasecmp");
+} else if ($sort_by !== NULL && $sort_by !== "md5s") {
+    uasort($plugindata, function ($a, $b) use ($sort_by) {
+        return (!empty($a["removed"]) - !empty($b["removed"])) ?: strcasecmp($a[$sort_by], $b[$sort_by]);
+    });
+}
 $plugintable = array();
 foreach ($plugindata as $name => $plugin) {
     $removed = isset($plugin['removed']) && $plugin['removed'];
@@ -106,25 +108,25 @@ foreach ($plugindata as $name => $plugin) {
             }
         }, explode(' ', $plugin['author']))),
         'topic' => is_null($plugin['topic']) ? "none" : "<a href=\"http://www.ganggarrison.com/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
-        'md5' => ''
+        'md5s' => ''
     );
     // Removed plugins have no MD5s
     if ($removed) {
-        $row['md5'] = "(removed)";
+        $row['md5s'] = "(removed)";
     // Single MD5 is just a link
     } else if (!(count($plugin['md5s']) > 1)) {
         $md5 = $plugin['md5s'][0];
-        $row['md5'] = "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
+        $row['md5s'] = "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
     } else {
     // If we have multiple MD5s, we'll make list with latest and old versions
-        $row['md5'] = "<ul>";
+        $row['md5s'] = "<ul>";
         foreach ($plugin['md5s'] as $index => $md5) {
-            $row['md5'] .= ($index === 0) ? "<li>" : "<li class=old-md5>";
-            $row['md5'] .= "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
-            $row['md5'] .= ($index === 0) ? "" : " (old)";
-            $row['md5'] .= "</li>";
+            $row['md5s'] .= ($index === 0) ? "<li>" : "<li class=old-md5>";
+            $row['md5s'] .= "<a href=\"$name@$md5.zip\" class=md5>$md5</a>";
+            $row['md5s'] .= ($index === 0) ? "" : " (old)";
+            $row['md5s'] .= "</li>";
         }
-        $row['md5'] .= "</ul>";
+        $row['md5s'] .= "</ul>";
     }
     $plugintable[] = $row;
 }
@@ -133,4 +135,4 @@ foreach ($plugindata as $name => $plugin) {
 echo $pagehead;
 
 // Default to sorting by name
-draw_table($plugintable, isset($_GET['sort_by']) ? $_GET['sort_by'] : 'name');
+draw_table($plugintable, $sort_by);
