@@ -1,4 +1,22 @@
 {
+    "authors": {
+        "Cerapter": "7319",
+        "ajf": "8441",
+        "YB": "4829",
+        "Dusty": "472",
+        "Derpduck": "6035",
+        "BassMakesPaste": "8217",
+        "Lorgan3": "5863",
+        "PrOF": "10946",
+        "WoodNeck": "6179",
+        "SevereHazard": "10121",
+        "Vindicator": "2200",
+        "Arctic": "8090",
+        "Mew": "4801",
+        "darthmule": "9745",
+        "Wareya": "1086",
+        "MTK5012": "4614"
+    },
     "plugins": {
         "lowgravity": {
             "author": "Mew",

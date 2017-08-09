@@ -90,14 +90,21 @@ function draw_table ($rows, $sort_by = NULL) {
 
 // Prepare data to display
 
-$plugindata = json_decode(file_get_contents("../data.json"), true);
-$plugindata = $plugindata['plugins'];
+$data = json_decode(file_get_contents("../data.json"), true);
+$plugindata = $data['plugins'];
+$authordata = $data['authors'];
 $plugintable = array();
 foreach ($plugindata as $name => $plugin) {
     $removed = isset($plugin['removed']) && $plugin['removed'];
     $row = array(
         'name' => $removed ? "<del>$name</del>" : $name,
-        'author' => $plugin['author'],
+        'author' => implode(' ', array_map(function ($s) use ($authordata) {
+            if (isset($authordata[$s])) {
+                return "<a href=\"http://www.ganggarrison.com/forums/index.php?action=profile;u=$authordata[$s]\">$s</a>";
+            } else {
+                return $s;
+            }
+        }, explode(' ', $plugin['author']))),
         'topic' => is_null($plugin['topic']) ? "none" : "<a href=\"http://www.ganggarrison.com/forums/index.php?topic={$plugin['topic']}\">#{$plugin['topic']}</a>",
         'md5' => ''
     );
