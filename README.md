@@ -24,7 +24,10 @@ Plugins have an entries in the JSON file `data.json`, which has the following fo
 
 ```
 {
-    "plugins" {
+    "authors": {
+        <author name>: <string id of Gang Garrison 2 Forums user>
+    },
+    "plugins": {
         <plugin name>: {
             "author": <name of the plugin author>,
             "topic": <string id of Gang Garrison 2 Forums topic, including .0>,
@@ -43,7 +46,7 @@ For example, a hypothetical chat plugin might have an entry that looks like this
 
 ```JSON
 "example_chat": {
-    "author": "Jane Blogges",
+    "author": "JaneBlogges",
     "topic": "123456.0",
     "md5s": [
         "1234567890abcdef1234567890abcdef"
@@ -55,7 +58,7 @@ Plugins which have been removed for whatever reason lack the `"md5s"` array and 
 
 ```JSON
 "example_chat": {
-    "author": "Jane Blogges",
+    "author": "JaneBlogges",
     "topic": "123456.0",
     "removed": true
 }
