@@ -430,6 +430,13 @@
                 "d222e602e7560d76f6ea3834cbf981c0",
                 "543516a7ada81e4c807091dbfbe96c4d"
             ]
+        },
+        "quake": {
+            "author": "Derpduck",
+            "topic": "37964.0",
+            "md5s": [
+                "7223619c206627cd0dcd5f09c75c4fca"
+            ]
         }
     }
 }
