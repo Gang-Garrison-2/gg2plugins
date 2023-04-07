@@ -17,7 +17,8 @@
         "Wareya": "1086",
         "MTK5012": "4614",
         "bullets": "7396",
-        "BuTt": "11333"
+        "BuTt": "11333",
+        "H2O": "2617"
     },
     "plugins": {
         "lowgravity": {
@@ -204,9 +205,10 @@
             ]
         },
         "upgradeable_sentries": {
-            "author": "BassMakesPaste",
-            "topic": "34989.0",
+            "author": "BassMakesPaste and H2O",
+            "topic": "38558.0",
             "md5s": [
+                "aa27de512b0ceed78e0aaa584e47e813",
                 "7755e30d81b449c631e3c0aad8d3019e",
                 "60946466795c13220da6417c43da9fc8"
             ]
