@@ -18,7 +18,8 @@
         "MTK5012": "4614",
         "bullets": "7396",
         "BuTt": "11333",
-        "H2O": "2617"
+        "H2O": "2617",
+        "MCBoss": "11774"
     },
     "plugins": {
         "lowgravity": {
@@ -310,9 +311,10 @@
             ]
         },
         "let_it_snow": {
-            "author": "BassMakesPaste",
+            "author": "BassMakesPaste and MCBoss",
             "topic": "36248.0",
             "md5s": [
+                "1175fda0630f4a999d0f7a6b83e9548f",
                 "69878c30576eeccef0c243d57332552d"
             ]
         },
