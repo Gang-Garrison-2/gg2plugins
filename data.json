@@ -19,7 +19,8 @@
         "bullets": "7396",
         "BuTt": "11333",
         "H2O": "2617",
-        "MCBoss": "11774"
+        "MCBoss": "11774",
+        "YB": "4829"
     },
     "plugins": {
         "lowgravity": {
@@ -466,6 +467,13 @@
             "topic": "38512.0",
             "md5s": [
                 "e829835a31fe286b6bc6253d7452f1e8"
+            ]
+        },
+        "contracts": {
+            "author": "YB",
+            "topic": "38634.0",
+            "md5s": [
+                "0850e39727e4cb6507851c0c674ca8bc"
             ]
         }
     }
